@@ -1,0 +1,12 @@
+name: problem_solving_in_dart
+description: Problem solving problems in dart
+version: 1.0.0
+# repository: https://github.com/my_org/my_repo
+
+environment:
+  sdk: ^3.3.3
+
+dependencies:
+
+dev_dependencies:
+  test: ^1.24.0
