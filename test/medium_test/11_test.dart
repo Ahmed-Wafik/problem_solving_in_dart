@@ -10,7 +10,7 @@ void main() {
       expect(sol.maxArea(height), 49);
       expect(sol.maxArea(height2), 1);
     });
-     test('Solution 2', () {
+    test('Solution 2', () {
       final sol = Solution11();
       expect(sol.maxArea2(height), 49);
       expect(sol.maxArea2(height2), 1);
