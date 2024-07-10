@@ -17,18 +17,20 @@ class Solution {
 
   //O(n)
   int maxProfit2(List<int> prices) {
-    int maxValue = 0;
-    int minPrice = double.maxFinite.toInt();
+    int buyTime = 0;
+    int sellTime = 1;
+    int maxProfit = 0;
 
-    for (var i = 0; i < prices.length; i++) {
-      if (prices[i] < minPrice) {
-        minPrice = prices[i];
-        continue;
+    while (sellTime < prices.length) {
+      if (prices[buyTime] < prices[sellTime]) {
+        int profite = prices[sellTime] - prices[buyTime];
+        maxProfit = max(maxProfit, profite);
+      } else {
+        buyTime = sellTime;
       }
-      maxValue = max(maxValue, prices[i] - minPrice);
+      sellTime += 1;
     }
-
-    return maxValue;
+    return maxProfit;
   }
 
   int maxProfit3(List<int> prices) {
