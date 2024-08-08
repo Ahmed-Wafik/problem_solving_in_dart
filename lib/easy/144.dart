@@ -2,7 +2,7 @@
 import 'package:problem_solving_in_dart/helpers/binary_tree/tree_node.dart';
 
 class Solution {
-  List<int> _preorderTraversal(TreeNode? root) {
+  List<int> preorderTraversal(TreeNode? root) {
     if (root == null) return [];
     final stack = <TreeNode>[root];
     final result = <int>[];
@@ -18,7 +18,7 @@ class Solution {
   }
 
   // This soltion is much more efficient regading to momory space because we didn't need extra space for stack   -->
-  List<int> preorderTraversal(TreeNode? root) {
+  List<int> preorderTraversal2(TreeNode? root) {
     if (root == null) return [];
     final result = <int>[];
     void dfs(TreeNode? root) {
@@ -31,5 +31,13 @@ class Solution {
     dfs(root);
 
     return result;
+  }
+  // More simple recursion code
+  List<int> preorderTraversal3(TreeNode? root) {
+    if (root == null) return [];
+    final leftValues = preorderTraversal(root.left);
+    final rightValues = preorderTraversal(root.right);
+
+    return [root.val, ...leftValues, ...rightValues];
   }
 }
